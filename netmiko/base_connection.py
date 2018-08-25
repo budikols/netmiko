@@ -654,8 +654,10 @@ class BaseConnection(object):
 
         if "proxycommand" in source:
             proxy = paramiko.ProxyCommand(source['proxycommand'])
+            proxy.settimeout(30)
         elif "ProxyCommand" in source:
             proxy = paramiko.ProxyCommand(source['ProxyCommand'])
+            proxy.settimeout(30)
         else:
             proxy = None
 
